@@ -1,8 +1,7 @@
 class List < ApplicationRecord
-  validates :name, presence: true
-  validates :name, unique
-  validates :overview, presence: true
-  has_many :bookmars, dependent: :destroy
-  has_many :movies, through: :bookmarks
+  has_many :bookmarks
+  has_many :movies, through: :bookmarks, dependent: :destroy
+  validates :name, presence: true, uniqueness: true
+
 
 end

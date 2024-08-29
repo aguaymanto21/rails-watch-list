@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
-  validates :title, presence: true
-  validates :title, unique
-  validates :overview, presence: true
-  has_many :bookmars, dependent: :destroy
-  has_many :lists, through: :bookmarks
+  has_many :bookmarks
+
+  validates :title, presence: true, uniqueness: true
+  validates :overview, presence: true
+
 end
